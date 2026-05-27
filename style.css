@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700;900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Noto Sans KR', sans-serif;
+  overflow:hidden;
+  background:#021a10;
+}
+
+.hero{
+  width:100%;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+/* 배경 */
+.bg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  top:0;
+  left:0;
+  filter:brightness(.45) blur(3px);
+}
+
+/* 어두운 효과 */
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.25);
+}
+
+/* 콘텐츠 */
+.content{
+  position:absolute;
+  z-index:10;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:white;
+}
+
+/* 상단 문구 */
+.sub{
+  font-size:24px;
+  color:#bfff72;
+  margin-bottom:20px;
+
+  opacity:0;
+  animation:fadeUp 1s .3s forwards;
+}
+
+/* 메인 제목 */
+h1{
+  font-size:110px;
+  line-height:1;
+  font-weight:900;
+
+  opacity:0;
+
+  animation:
+    fadeUp 1s .8s forwards,
+    floatText 3s ease-in-out infinite;
+}
+
+h1 span{
+  color:#ff304f;
+}
+
+/* 설명 */
+.desc{
+  margin-top:25px;
+  font-size:28px;
+  line-height:1.5;
+
+  opacity:0;
+  animation:fadeUp 1s 1.3s forwards;
+}
+
+/* 버튼 */
+button{
+  margin-top:40px;
+  padding:20px 60px;
+
+  border:none;
+  border-radius:60px;
+
+  background:#ff304f;
+  color:white;
+
+  font-size:24px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  opacity:0;
+
+  animation:fadeUp 1s 1.8s forwards;
+
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.08);
+  background:#ff506a;
+}
+
+/* 음료 이미지 */
+.drink{
+  width:260px;
+  margin-top:40px;
+
+  opacity:0;
+
+  animation:
+    fadeUp 1.5s 2.3s forwards,
+    floatDrink 4s ease-in-out infinite;
+}
+
+/* 수박 */
+.watermelon{
+  position:absolute;
+  z-index:5;
+
+  font-size:120px;
+
+  opacity:0;
+
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));
+}
+
+/* 위치 */
+.wm1{
+  left:10%;
+  animation:drop1 2s .2s forwards;
+}
+
+.wm2{
+  left:45%;
+  animation:drop2 2s 1s forwards;
+}
+
+.wm3{
+  right:10%;
+  animation:drop3 2s 1.8s forwards;
+}
+
+/* 수박 떨어짐 */
+@keyframes drop1{
+
+  0%{
+    opacity:0;
+    transform:translateY(-400px) rotate(-30deg);
+  }
+
+  70%{
+    opacity:1;
+    transform:translateY(60px) rotate(10deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes drop2{
+
+  0%{
+    opacity:0;
+    transform:translateY(-500px) rotate(30deg);
+  }
+
+  70%{
+    opacity:1;
+    transform:translateY(60px) rotate(-10deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes drop3{
+
+  0%{
+    opacity:0;
+    transform:translateY(-450px) rotate(-20deg);
+  }
+
+  70%{
+    opacity:1;
+    transform:translateY(60px) rotate(8deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) rotate(0deg);
+  }
+}
+
+/* 등장 */
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* 글자 둥둥 */
+@keyframes floatText{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+}
+
+/* 음료 둥둥 */
+@keyframes floatDrink{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-20px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+}
+
+/* 모바일 */
+@media(max-width:768px){
+
+  h1{
+    font-size:64px;
+  }
+
+  .desc{
+    font-size:18px;
+  }
+
+  .watermelon{
+    font-size:80px;
+  }
+
+  .drink{
+    width:180px;
+  }
+
+  button{
+    font-size:18px;
+    padding:16px 40px;
+  }
+}
